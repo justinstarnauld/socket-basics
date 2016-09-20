@@ -20,7 +20,14 @@ socket.on('connect', function () {
 socket.on('message', function (message) {
   var momentTimestamp = moment.utc(message.timestamp);
   var $messages = jQuery('.messages')
-  var $message = jQuery('<li class="list-group-item"></li>');
+  var $message;
+  if (message.name === name) {
+    $message = jQuery('<li class="list-group-item"></li>');
+  } else if (message.name === 'System') {
+    $message = jQuery('<li class="list-group-item disabled"></li>');
+  } else {
+    $message = jQuery('<li class="list-group-item text-right"></li>');
+  }
   console.log('New message');
   console.log(message.text);
 
