@@ -5,3 +5,11 @@
   -ms-align-items: center;
   align-items: center;
 }
+
+h1 {
+  margin: 24px;
+}
+
+.messages p {
+  margin: 6px 0;
+}
